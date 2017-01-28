@@ -271,7 +271,7 @@
                             element.hPosition = hPos > 0 ? 0 : hPos;
                             element.scaleOldWidth = null;
                         }
-                        $dataPanel.css({ "margin-left": element.hPosition });
+                        $dataPanel.css("margin-left", element.hPosition);
                         element.scrollNavigation.panelMargin = element.hPosition;
                         core.synchronizeScroller(element);
                     }
@@ -291,7 +291,7 @@
                 var headerRows = scaleGroupSttings[element.scaleGroup].headerRows;
                 var ganttLeftPanel = $('<div class="leftPanel"/>')
                     .append($('<div class="row spacer"/>')
-                    .css("height", tools.getCellSize() * headerRows)
+                    .css("height", tools.getCellSize() * headerRows + 1 ) // 1 - for border
                     .css("width", "100%"));
 
                 $.each(element.data, function (i, entry) {
@@ -877,6 +877,9 @@
                         var targetRow = element.highlightedRow && element.highlightedRow >= firstColumn && element.highlightedRow <= lastColumn ?
                             element.highlightedRow : firstColumn;
                         element.pageNum = Math.floor(targetRow / settings.itemsPerPage);
+                        element.hPosition = $(".fn-gantt .dataPanel").css("margin-left").replace("px", "");
+                        element.hPosition = parseInt(element.hPosition, 10);
+
                         core.refresh(element);
                     }));
             },
@@ -1149,6 +1152,7 @@
                     core.waitToggle(element, function () {
                         element.pageNum += val;
                         element.hPosition = $(".fn-gantt .dataPanel").css("margin-left").replace("px", "");
+                        element.hPosition = parseInt(element.hPosition, 10);
                         element.scaleOldWidth = false;
                         core.init(element);
                     });
@@ -1181,6 +1185,7 @@
                     var $rightPanel = $(element).find(".fn-gantt .rightPanel");
                     var $dataPanel = $rightPanel.find(".dataPanel");
                     element.hPosition = $dataPanel.css("margin-left").replace("px", "");
+                    element.hPosition = parseInt(element.hPosition, 10);
                     element.scaleOldWidth = ($dataPanel.width() - $rightPanel.width());
 
                     if (settings.useCookie) {
