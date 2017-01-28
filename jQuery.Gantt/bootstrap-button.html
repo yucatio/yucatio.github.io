@@ -154,6 +154,13 @@
                   <option value="false">false</option>
                 </select>
               </div>
+              <div class="form-group">
+                <label for="useCookie">useCookie:</label>
+                <select name="useCookie" id="useCookie" class="form-control">
+                  <option value="true" selected>true</option>
+                  <option value="false">false</option>
+                </select>
+              </div>
               <button type="submit" class="btn btn-primary">Refresh</button>
               <h4><a id="open-time-input">Open data input form <span class="glyphicon glyphicon-list" aria-hidden="true"></span></a></h4>
               <div id="time-table-form">
@@ -798,6 +805,7 @@ values: [
             var scrollToToday = $('#scrollToToday').val() === "true" ? true : false;
             var highlightRow = $('#highlightRow').val() === "true" ? true : false;
             var snapToGrid = $('#snapToGrid').val() === "true" ? true : false;
+            var useCookie = $('#useCookie').val() === "true" ? true : false;
             var source = [];
             $('#time-table>tbody>tr.data-row').each(function() {
                 // make data from time table
@@ -829,7 +837,7 @@ values: [
                 minScale: minScale, // "hours"
                 itemsPerPage: itemsPerPage, // 10
                 itemsPerPageSelect: [5, 10, 20],
-                useCookie: true,
+                useCookie: useCookie,  // true
                 scrollToToday: scrollToToday, // true
                 onItemClick: function(data) {
                     alert("Item clicked - show some details");
