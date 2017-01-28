@@ -253,7 +253,7 @@
                 if (settings.useCookie) {
                     var sc = $.cookie(settings.cookieKey + "ScrollPos");
                     if (sc) {
-                        element.hPosition = sc;
+                        element.hPosition = parseInt(sc, 10);
                     }
                 }
 
