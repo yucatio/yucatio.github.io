@@ -1,0 +1,49 @@
+nav {
+  background-color: #fd9a29;
+}
+
+#used-piece-droppable {
+  background-color: #fff8e1;
+}
+
+#used-piece-droppable.hover {
+  background-color: #ffecb3;
+}
+
+.draggable-piece {
+  z-index: 10;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 80px solid transparent;
+  border-right: 80px solid transparent;
+  border-top: 30px solid #ffc107;
+}
+
+#reset-button, #more-piece-button {
+  display: none;
+}
+
+#katamino-field {
+  position: relative;
+  width: 352px;
+}
+
+#field-mask {
+  position: absolute;
+  top: 26px;
+  left: 151px;
+  width: 175px;
+  height: 125px;
+  background-color: #666666;
+  opacity: 0.7;
+}
+
+.katamino-piece {
+  display: none;
+  position: absolute;
+}

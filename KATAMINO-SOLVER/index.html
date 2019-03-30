@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- jQuery-UI CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>KATAMINO SOLVER</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-light shadow-sm mb-5">
+      <img class="navbar-brand" src="img/logo/Primary_logo_on_transparent_400x63.png" />
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a id="language-dropdown" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Language</a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="language-dropdown">
+            <a class="dropdown-item" href="index.html">English</a>
+            <a class="dropdown-item" href="index.ja.html">日本語</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <div class="alert alert-warning text-center my-4">
+        Drag and drop pieces to use to the lower panel.
+        Then hit START button.
+      </div>
+      <div id="unused-piece" class="card text-center my-2">
+        <div id="unused-piece-droppable" class="card-body">
+          <span id="piece_0" class="draggable-piece m-2 p-0" data-piece-id="0">
+            <img src="img/piece/piece_0_1.png" width="25px" />
+          </span>
+          <span id="piece_3" class="draggable-piece m-2 p-0" data-piece-id="3">
+            <img src="img/piece/piece_3_5.png" width="50px" />
+          </span>
+          <span id="piece_4" class="draggable-piece m-2 p-0" data-piece-id="4">
+            <img src="img/piece/piece_4_2.png" width="75px" />
+          </span>
+          <span id="piece_6" class="draggable-piece m-2 p-0" data-piece-id="6">
+            <img src="img/piece/piece_6_1.png" width="50px" />
+          </span>
+          <span id="piece_7" class="draggable-piece m-2 p-0" data-piece-id="7">
+            <img src="img/piece/piece_7_0.png" width="75px" />
+          </span>
+          <span id="piece_8" class="draggable-piece m-2 p-0" data-piece-id="8">
+            <img src="img/piece/piece_8_0.png" width="75px" />
+          </span>
+          <span id="piece_11" class="draggable-piece m-2 p-0" data-piece-id="11">
+            <img src="img/piece/piece_11_0.png" width="75px" />
+          </span>
+        </div>
+      </div>
+      <div class="arrow-down mx-auto">
+      </div>
+      <div id="used-piece" class="card text-center border-warning my-2">
+        <div id="used-piece-droppable" class="card-body">
+          <div id="piece_1" class="draggable-piece m-2 p-0" data-piece-id="1">
+            <img src="img/piece/piece_1_5.png" width="50px" />
+          </div>
+          <div id="piece_2" class="draggable-piece m-2 p-0" data-piece-id="2">
+            <img src="img/piece/piece_2_5.png" width="50px" />
+          </div>
+          <div id="piece_9" class="draggable-piece m-2 p-0" data-piece-id="9">
+            <img src="img/piece/piece_9_0.png" width="75px" />
+          </div>
+          <div id="piece_5" class="draggable-piece m-2 p-0" data-piece-id="5">
+            <img src="img/piece/piece_5_3.png" width="50px" />
+          </div>
+          <div id="piece_10" class="draggable-piece m-2 p-0" data-piece-id="10">
+            <img src="img/piece/piece_10_0.png" width="75px" />
+          </div>
+        </div>
+        <div class="card-footer">
+          PIECE TO USE
+        </div>
+      </div>
+      <button type="button" id="start-button" class="btn btn-warning btn-lg btn-block my-3">START</button>
+      <button type="button" id="more-piece-button" class="btn btn-warning btn-lg btn-block my-3" disabled>ADD MORE PIECE</button>
+      <button type="button" id="reset-button" class="btn btn-danger btn-lg btn-block my-3">TRY ANOTHER COMBINATION</button>
+
+      <div class="card my-2">
+        <div class="card-body">
+          <div id="katamino-field" class="mx-auto p-0">
+            <img src="img/field/field.jpg" width="352" height="177"/>
+            <div id="field-mask"></div>
+            <img id="piece_0_0" class="katamino-piece" src="img/piece/piece_0_0.png" width="125px" />
+            <img id="piece_0_1" class="katamino-piece" src="img/piece/piece_0_1.png" width="25px" />
+
+            <img id="piece_1_0" class="katamino-piece" src="img/piece/piece_1_0.png" width="100px" />
+            <img id="piece_1_1" class="katamino-piece" src="img/piece/piece_1_1.png" width="50px" />
+            <img id="piece_1_2" class="katamino-piece" src="img/piece/piece_1_2.png" width="100px" />
+            <img id="piece_1_3" class="katamino-piece" src="img/piece/piece_1_3.png" width="50px" />
+            <img id="piece_1_4" class="katamino-piece" src="img/piece/piece_1_4.png" width="100px" />
+            <img id="piece_1_5" class="katamino-piece" src="img/piece/piece_1_5.png" width="50px" />
+            <img id="piece_1_6" class="katamino-piece" src="img/piece/piece_1_6.png" width="100px" />
+            <img id="piece_1_7" class="katamino-piece" src="img/piece/piece_1_7.png" width="50px" />
+
+            <img id="piece_2_0" class="katamino-piece" src="img/piece/piece_2_0.png" width="100px" />
+            <img id="piece_2_1" class="katamino-piece" src="img/piece/piece_2_1.png" width="50px" />
+            <img id="piece_2_2" class="katamino-piece" src="img/piece/piece_2_2.png" width="100px" />
+            <img id="piece_2_3" class="katamino-piece" src="img/piece/piece_2_3.png" width="50px" />
+            <img id="piece_2_4" class="katamino-piece" src="img/piece/piece_2_4.png" width="100px" />
+            <img id="piece_2_5" class="katamino-piece" src="img/piece/piece_2_5.png" width="50px" />
+            <img id="piece_2_6" class="katamino-piece" src="img/piece/piece_2_6.png" width="100px" />
+            <img id="piece_2_7" class="katamino-piece" src="img/piece/piece_2_7.png" width="50px" />
+
+            <img id="piece_3_0" class="katamino-piece" src="img/piece/piece_3_0.png" width="100px" />
+            <img id="piece_3_1" class="katamino-piece" src="img/piece/piece_3_1.png" width="50px" />
+            <img id="piece_3_2" class="katamino-piece" src="img/piece/piece_3_2.png" width="100px" />
+            <img id="piece_3_3" class="katamino-piece" src="img/piece/piece_3_3.png" width="50px" />
+            <img id="piece_3_4" class="katamino-piece" src="img/piece/piece_3_4.png" width="100px" />
+            <img id="piece_3_5" class="katamino-piece" src="img/piece/piece_3_5.png" width="50px" />
+            <img id="piece_3_6" class="katamino-piece" src="img/piece/piece_3_6.png" width="100px" />
+            <img id="piece_3_7" class="katamino-piece" src="img/piece/piece_3_7.png" width="50px" />
+
+            <img id="piece_4_0" class="katamino-piece" src="img/piece/piece_4_0.png" width="75px" />
+            <img id="piece_4_1" class="katamino-piece" src="img/piece/piece_4_1.png" width="75px" />
+            <img id="piece_4_2" class="katamino-piece" src="img/piece/piece_4_2.png" width="75px" />
+            <img id="piece_4_3" class="katamino-piece" src="img/piece/piece_4_3.png" width="75px" />
+
+            <img id="piece_5_0" class="katamino-piece" src="img/piece/piece_5_0.png" width="75px" />
+            <img id="piece_5_1" class="katamino-piece" src="img/piece/piece_5_1.png" width="50px" />
+            <img id="piece_5_2" class="katamino-piece" src="img/piece/piece_5_2.png" width="75px" />
+            <img id="piece_5_3" class="katamino-piece" src="img/piece/piece_5_3.png" width="50px" />
+            <img id="piece_5_4" class="katamino-piece" src="img/piece/piece_5_4.png" width="75px" />
+            <img id="piece_5_5" class="katamino-piece" src="img/piece/piece_5_5.png" width="50px" />
+            <img id="piece_5_6" class="katamino-piece" src="img/piece/piece_5_6.png" width="75px" />
+            <img id="piece_5_7" class="katamino-piece" src="img/piece/piece_5_7.png" width="50px" />
+
+            <img id="piece_6_0" class="katamino-piece" src="img/piece/piece_6_0.png" width="75px" />
+            <img id="piece_6_1" class="katamino-piece" src="img/piece/piece_6_1.png" width="50px" />
+            <img id="piece_6_2" class="katamino-piece" src="img/piece/piece_6_2.png" width="75px" />
+            <img id="piece_6_3" class="katamino-piece" src="img/piece/piece_6_3.png" width="50px" />
+
+            <img id="piece_7_0" class="katamino-piece" src="img/piece/piece_7_0.png" width="75px" />
+            <img id="piece_7_1" class="katamino-piece" src="img/piece/piece_7_1.png" width="75px" />
+            <img id="piece_7_2" class="katamino-piece" src="img/piece/piece_7_2.png" width="75px" />
+            <img id="piece_7_3" class="katamino-piece" src="img/piece/piece_7_3.png" width="75px" />
+
+            <img id="piece_8_0" class="katamino-piece" src="img/piece/piece_8_0.png" width="75px" />
+            <img id="piece_8_1" class="katamino-piece" src="img/piece/piece_8_1.png" width="75px" />
+            <img id="piece_8_2" class="katamino-piece" src="img/piece/piece_8_2.png" width="75px" />
+            <img id="piece_8_3" class="katamino-piece" src="img/piece/piece_8_3.png" width="75px" />
+            <img id="piece_8_4" class="katamino-piece" src="img/piece/piece_8_4.png" width="75px" />
+            <img id="piece_8_5" class="katamino-piece" src="img/piece/piece_8_5.png" width="75px" />
+            <img id="piece_8_6" class="katamino-piece" src="img/piece/piece_8_6.png" width="75px" />
+            <img id="piece_8_7" class="katamino-piece" src="img/piece/piece_8_7.png" width="75px" />
+
+            <img id="piece_9_0" class="katamino-piece" src="img/piece/piece_9_0.png" width="75px" />
+            <img id="piece_9_1" class="katamino-piece" src="img/piece/piece_9_1.png" width="75px" />
+            <img id="piece_9_2" class="katamino-piece" src="img/piece/piece_9_2.png" width="75px" />
+            <img id="piece_9_3" class="katamino-piece" src="img/piece/piece_9_3.png" width="75px" />
+
+            <img id="piece_10_0" class="katamino-piece" src="img/piece/piece_10_0.png" width="75px" />
+            <img id="piece_10_1" class="katamino-piece" src="img/piece/piece_10_1.png" width="75px" />
+            <img id="piece_10_2" class="katamino-piece" src="img/piece/piece_10_2.png" width="75px" />
+            <img id="piece_10_3" class="katamino-piece" src="img/piece/piece_10_3.png" width="75px" />
+
+            <img id="piece_11_0" class="katamino-piece" src="img/piece/piece_11_0.png" width="75px" />
+          </div>
+        </div>
+        <div class="card-footer d-flex">
+          <div class="flex-grow-1">
+            <button id="pause-button" type="button" class="btn btn-outline-secondary" disabled>PAUSE</button>
+            <button id="resume-button" type="button" class="btn btn-outline-secondary" disabled>RESUME</button>
+          </div>
+          <div class="align-self-center">
+            <label class="text-secondary">Speed: Fast <input id="speed-range" type="range" name="speed" form="dummy-form" min="0" max="4" value="3"> Slow</label>
+          </div>
+        </div>
+      </div>
+      <!-- AD -->
+      <div class="text-secondary mt-4">KATAMINO is a product of Gigamic</div>
+      <table border="0" cellpadding="0" cellspacing="0"><tr><td><div style="border:1px solid #95a5a6;border-radius:.75rem;background-color:#FFFFFF;width:504px;margin:0px;padding:5px;text-align:center;overflow:hidden;"><table><tr><td style="width:240px"><a href="https://hb.afl.rakuten.co.jp/hgc/182e4377.af19d097.182e4378.b6c07045/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnewton-style%2Fkom259200%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnewton-style%2Fi%2F10000912%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxfQ%3D%3D" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  ><img src="https://hbb.afl.rakuten.co.jp/hgb/182e4377.af19d097.182e4378.b6c07045/?me_id=1227356&item_id=10000912&m=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fnewton-style%2Fcabinet%2Fretail_img%2Fns%2Fkom259200.jpg%3F_ex%3D80x80&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fnewton-style%2Fcabinet%2Fretail_img%2Fns%2Fkom259200.jpg%3F_ex%3D240x240&s=240x240&t=picttext" border="0" style="margin:2px" alt="[商品価格に関しましては、リンクが作成された時点と現時点で情報が変更されている場合がございます。]" title="[商品価格に関しましては、リンクが作成された時点と現時点で情報が変更されている場合がございます。]"></a></td><td style="vertical-align:top;width:248px;"><p style="font-size:12px;line-height:1.4em;text-align:left;margin:0px;padding:2px 6px;word-wrap:break-word"><a href="https://hb.afl.rakuten.co.jp/hgc/182e4377.af19d097.182e4378.b6c07045/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnewton-style%2Fkom259200%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnewton-style%2Fi%2F10000912%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxfQ%3D%3D" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  >【ポイント11倍】 Gigamic（ギガミック）社 カタミノ KATAMINO 3歳〜 ギフト プレゼント (ネコポス不可) puzzle 新入学 新入園</a><br><span >価格：6048円（税込、送料無料)</span> <span style="color:#BBB">(2019/3/30時点)</span></p><div style="margin:10px;"><a href="https://hb.afl.rakuten.co.jp/hgc/182e4377.af19d097.182e4378.b6c07045/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnewton-style%2Fkom259200%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnewton-style%2Fi%2F10000912%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxfQ%3D%3D" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  ><img src="https://static.affiliate.rakuten.co.jp/makelink/rl.svg" style="float:left;max-height:27px;width:auto;margin-top:0"></a><a href="https://hb.afl.rakuten.co.jp/hgc/182e4377.af19d097.182e4378.b6c07045/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnewton-style%2Fkom259200%2F%3Fscid%3Daf_pc_bbtn&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnewton-style%2Fi%2F10000912%2F%3Fscid%3Daf_pc_bbtn&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxfQ==" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  ><div style="float:right;width:41%;height:27px;background-color:#bf0000;color:#fff !important;font-size:12px;font-weight:500;line-height:27px;margin-left:1px;padding: 0 12px;border-radius:16px;cursor:pointer;text-align:center;">楽天で購入</div></a></div></td><tr></table></div><br><p style="color:#000000;font-size:12px;line-height:1.4em;margin:5px;word-wrap:break-word"></p></td></tr></table>
+
+      <div class="text-secondary mt-1">For your brain training</div>
+      <table border="0" cellpadding="0" cellspacing="0"><tr><td><div style="border:1px solid #95a5a6;border-radius:.75rem;background-color:#FFFFFF;width:504px;margin:0px;padding:5px;text-align:center;overflow:hidden;"><table><tr><td style="width:240px"><a href="https://hb.afl.rakuten.co.jp/hgc/09e70744.31e3aef1.09e70745.88f86ff4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F15804478%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19504549%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxfQ%3D%3D" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  ><img src="https://hbb.afl.rakuten.co.jp/hgb/09e70744.31e3aef1.09e70745.88f86ff4/?me_id=1213310&item_id=19504549&m=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F9032%2F9784053049032.jpg%3F_ex%3D80x80&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F9032%2F9784053049032.jpg%3F_ex%3D240x240&s=240x240&t=picttext" border="0" style="margin:2px" alt="[商品価格に関しましては、リンクが作成された時点と現時点で情報が変更されている場合がございます。]" title="[商品価格に関しましては、リンクが作成された時点と現時点で情報が変更されている場合がございます。]"></a></td><td style="vertical-align:top;width:248px;"><p style="font-size:12px;line-height:1.4em;text-align:left;margin:0px;padding:2px 6px;word-wrap:break-word"><a href="https://hb.afl.rakuten.co.jp/hgc/09e70744.31e3aef1.09e70745.88f86ff4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F15804478%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19504549%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxfQ%3D%3D" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  >5分で論理的思考力ドリル [ ソニー・グローバルエデュケーション ]</a><br><span >価格：1080円（税込、送料無料)</span> <span style="color:#BBB">(2019/3/30時点)</span></p><div style="margin:10px;"><a href="https://hb.afl.rakuten.co.jp/hgc/09e70744.31e3aef1.09e70745.88f86ff4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F15804478%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19504549%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxfQ%3D%3D" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  ><img src="https://static.affiliate.rakuten.co.jp/makelink/rl.svg" style="float:left;max-height:27px;width:auto;margin-top:0"></a><a href="https://hb.afl.rakuten.co.jp/hgc/09e70744.31e3aef1.09e70745.88f86ff4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F15804478%2F%3Fscid%3Daf_pc_bbtn&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19504549%2F%3Fscid%3Daf_pc_bbtn&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxfQ==" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  ><div style="float:right;width:41%;height:27px;background-color:#bf0000;color:#fff !important;font-size:12px;font-weight:500;line-height:27px;margin-left:1px;padding: 0 12px;border-radius:16px;cursor:pointer;text-align:center;">楽天で購入</div></a></div></td><tr></table></div><br><p style="color:#000000;font-size:12px;line-height:1.4em;margin:5px;word-wrap:break-word"></p></td></tr></table>
+      <!-- /AD -->
+    </div>
+
+    <form id="dummy-form" name="dummy" onsubmit="return false;">
+    </form>
+
+    <div id="solvedModal" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-warning">
+            <h5 class="modal-title">I did it.</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Check the answer</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="notSolvedModal" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-white bg-secondary">
+            <h5 class="modal-title">No solution for this combination.</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Try another combination.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-light mt-5">
+      <div class="container">
+        <div class="row py-3">
+          <div class="col">
+            <ul class="list-unstyled text-small">
+              <li class="text-muted">Created by : yucatio</li>
+              <li class="text-muted">github : <a href="https://github.com/yucatio/KATAMINO-SOLVER">https://github.com/yucatio/KATAMINO-SOLVER</a></li>
+              <li class="text-muted">blog : <a href="http://yucatio.hatenablog.com/">http://yucatio.hatenablog.com/</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="js/util.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/display.js"></script>
+    <script src="js/displayManager.js"></script>
+    <script src="js/katamino-arr.js"></script>
+    <script src="js/field.js"></script>
+    <script src="js/action.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
