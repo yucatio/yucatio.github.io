@@ -5,10 +5,8 @@ const display = {
     element.draggable(state.solverState === "selectPiece" ? "enable" : "disable")
     element.children("img").show()
 
-    const placedList = state.fieldPieceList
-
-    placedList.forEach((place) => {
-      $("#piece_" + place.spin.pieceId + ">img").hide()
+    state.fieldPieceList.forEach((place) => {
+      $("#piece_" + place.pieceId + ">img").hide()
     })
   },
 
@@ -34,12 +32,11 @@ const display = {
   updateFieldPiece : () => {
     $(".katamino-piece").hide()
 
-    const placedList = state.fieldPieceList
-
-    placedList.forEach((place) => {
-      $("#piece_" + place.spin.pieceId + "_" + place.spin.spinId).show(
+    state.fieldPieceList.forEach((place) => {
+      $("#piece_" + place.pieceId + "_" + place.spinId
       ).css("top", place.offset.x * config.cellSize + config.offset.top
-      ).css("left", place.offset.y * config.cellSize + config.offset.left)
+      ).css("left", place.offset.y * config.cellSize + config.offset.left
+      ).show()
     })
   },
 

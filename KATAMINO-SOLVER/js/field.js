@@ -7,21 +7,19 @@ const field = {
     field._solverStack =[]
     field.done = false
 
-    let kataminoField = []
     // create field with 5 * num_katamino. Each cell is initialized to "-1"
-    for(let i=0; i < 5; i++) {
-      kataminoField.push((new Array(targetPiece.length)).fill(-1))
-    }
+    let kataminoField = new Array(5).fill().map(() => (
+      new Array(targetPiece.length).fill(-1)
+    ))
 
     const minEmpty = {x:0, y:0}
     const placedPiece = []
 
-    targetPiece.forEach((piece) => {
-      KATAMINO_ARR[piece].forEach((spin) => {
-        field._solverStack.push({spin, kataminoField, minEmpty, unPlacedPiece:　targetPiece, placedPiece})
+    targetPiece.forEach((pieceId) => {
+      KATAMINO_ARR[pieceId].forEach((spin, spinId) => {
+        field._solverStack.push({pieceId, spinId, spin, kataminoField, minEmpty, unPlacedPiece:　targetPiece, placedPiece})
       })
     })
-
   },
 
   solve : (onNewPlace, onSolved, onNotSolved) => {
@@ -29,85 +27,71 @@ const field = {
       // not solved
       console.log("not solved")
       field.done = true
+      onNewPlace([])
       onNotSolved()
       return
     }
 
-    const stackInfo = field._solverStack.pop()
-
-    const spin = stackInfo.spin
-    const kataminoField = stackInfo.kataminoField
-    const minEmpty = stackInfo.minEmpty
-    const unPlacedPiece = stackInfo.unPlacedPiece
-    const placedPiece = stackInfo.placedPiece
-
-    // console.log("spin", spin)
-
-    onNewPlace(placedPiece)
+    const {pieceId, spinId, spin, kataminoField, minEmpty, unPlacedPiece, placedPiece} = field._solverStack.pop()
 
     // spin.place[0] always x=0, minumum y in x=0
-    const offset = {x: minEmpty.x, y: minEmpty.y - spin.place[0].y}
+    const offset = {x: minEmpty.x, y: minEmpty.y - spin[0].y}
 
-    if (! field.isAllEmpty(kataminoField, offset, spin.place)) {
-      // another piece already there
+    if (! field.isAllEmpty(kataminoField, offset, spin)) {
+      // out of field or another piece already there
       return
     }
 
     const nextField = util.copyArrayOfArray(kataminoField)
-    field.placeKatamino(nextField, offset, spin.place, spin.pieceId)
-    // console.log("nextField", nextField)
+    field.placeKatamino(nextField, offset, spin, pieceId)
 
     const nextUnPlaced = unPlacedPiece.concat()
-    util.removeFromArray(nextUnPlaced, spin.pieceId)
+    util.removeFromArray(nextUnPlaced, pieceId)
 
     const nextPlacedPiece = placedPiece.concat()
-    nextPlacedPiece.push({offset, spin})
+    nextPlacedPiece.push({offset, pieceId, spinId, spin})
+
+    onNewPlace(nextPlacedPiece)
 
     if (nextUnPlaced.length <= 0) {
       console.log("completed")
 
       field.done = true
-      onSolved(nextPlacedPiece)
+      onSolved()
       return
     }
+
     const nextEmpty = field.findNextEmpty(nextField, minEmpty)
 
     if (! field.hasFiveTimesCells(nextField, nextEmpty)) {
       // wrongly devided
-
-      onNewPlace(nextPlacedPiece)
       return
     }
 
-    nextUnPlaced.forEach((nextPiece) => {
-      KATAMINO_ARR[nextPiece].forEach((nextSpin) => {
-        field._solverStack.push({spin: nextSpin, kataminoField: nextField, minEmpty: nextEmpty, unPlacedPiece: nextUnPlaced, placedPiece: nextPlacedPiece})
+    nextUnPlaced.forEach((nextPieceId) => {
+      KATAMINO_ARR[nextPieceId].forEach((nextSpin, nextSpinId) => {
+        field._solverStack.push({pieceId:nextPieceId, spinId:nextSpinId, spin: nextSpin, kataminoField: nextField, minEmpty: nextEmpty, unPlacedPiece: nextUnPlaced, placedPiece: nextPlacedPiece})
       })
     })
   },
 
-  isAllEmpty: (kataminoField, offset, placeList) => {
-    return placeList.every((place) => (
+  isAllEmpty: (kataminoField, offset, places) => {
+    return places.every((place) => (
       field.isEmpty(kataminoField, {x: offset.x + place.x, y: offset.y + place.y})
     ))
   },
 
   isEmpty: (kataminoField, place) => {
-    if (place.x < 0 || place.x >= kataminoField.length) {
-      return false
-    }
-    if (place.y < 0 || place.y >= kataminoField[0].length) {
-      return false
-    }
-
-    return kataminoField[place.x][place.y] < 0
+    return (
+      kataminoField[place.x] !== undefined &&
+      kataminoField[place.x][place.y] !== undefined &&
+      kataminoField[place.x][place.y] < 0
+    )
   },
 
-  placeKatamino: (kataminoField, offset, placeList, pieceId) => {
-    placeList.forEach((place) => {
-      const x = offset.x + place.x
-      const y = offset.y + place.y
-      kataminoField[x][y] = pieceId
+  placeKatamino: (kataminoField, offset, places, pieceId) => {
+    places.forEach((place) => {
+      kataminoField[offset.x + place.x][offset.y + place.y] = pieceId
     })
   },
 
