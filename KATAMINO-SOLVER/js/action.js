@@ -94,41 +94,36 @@ const action = {
   },
 
   _onNewPlace: (placedPiece) => {
-    if (state.displayQueue.length <= 0) {
-      state.displayQueue.push({placedPiece})
-      return
-    }
-
-    const lastPlacedPiece = state.displayQueue[state.displayQueue.length -1].placedPiece
-
-    if (lastPlacedPiece.length !== placedPiece.length) {
-      // if newPlace or placedPlace is changed, add to displayQueue
-
-      if (state.displayQueue.length >= 2) {
-        const last2PlacedPiece = state.displayQueue[state.displayQueue.length -2].placedPiece
-        // if for the case
-        // Example: queue=[{1, 2, 3}, {1,2}], placedPiece={1,2,3}
-        // New queue= [{1,2,3}, {1,2,3}]
-        if ((lastPlacedPiece.length === placedPiece.length -1)
-              && (last2PlacedPiece.length === placedPiece.length)
-              && (last2PlacedPiece[last2PlacedPiece.length -1].spin.pieceId === placedPiece[placedPiece.length -1].spin.pieceId)) {
-          state.displayQueue.pop()
-        }
+    // insert stepback piece
+    while(true) {
+      const previousPlaced = state.displayQueue.length > 0 ?
+                               state.displayQueue[state.displayQueue.length - 1].placedPiece :
+                               state.fieldPieceList
+      if (previousPlaced.length < placedPiece.length) {
+        break
       }
-
-      state.displayQueue.push({placedPiece})
-
-      return
+      if(placedPiece.length <= 0 && previousPlaced.length === 1) {
+        break
+      }
+      if (previousPlaced.length === placedPiece.length &&
+          previousPlaced[previousPlaced.length - 1].pieceId === placedPiece[previousPlaced.length - 1].pieceId) {
+        break
+      }
+      const stepback = previousPlaced.concat()
+      stepback.pop()
+      state.displayQueue.push({placedPiece:stepback})
     }
+
+    state.displayQueue.push({placedPiece})
   },
 
-  _onSolved: (placedPiece) => {
-    state.displayQueue.push({placedPiece, result: "solved"})
+  _onSolved: () => {
+    state.displayQueue.push({result: "solved"})
     action._stopSolverTimer()
   },
 
   _onNotSolved: () => {
-    state.displayQueue.push({placedPiece:[], result: "notSolved"})
+    state.displayQueue.push({result: "notSolved"})
     action._stopSolverTimer()
   },
 
@@ -139,8 +134,10 @@ const action = {
       return
     }
 
-    state.fieldPieceList = placed.placedPiece
-    displayManager.fieldPieceUpdated()
+    if (placed.placedPiece) {
+      state.fieldPieceList = placed.placedPiece
+      displayManager.fieldPieceUpdated()
+    }
 
     if (placed.result) {
       state.result = placed.result
