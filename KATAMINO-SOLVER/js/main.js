@@ -1,7 +1,5 @@
 $( function() {
   initializer.setEvent()
-
-  action.init()
 })
 
 $(window).on('load', () => {
@@ -26,18 +24,18 @@ const initializer = {
       hoverClass: "bg-light",
       accept: ".draggable-piece",
       drop : ((e, ui) => {
-        const pieceIdStr = ui.draggable.data("piece-id")
-        action.removeFromTargetPieceList(parseInt(pieceIdStr, 10))
-      })
+        const pieceId = ui.draggable.data("piece-id")
+        action.removeFromTargetPieces(parseInt(pieceId, 10))
+      }),
     })
 
     $("#used-piece-droppable").droppable({
       hoverClass: "hover",
       accept: ".draggable-piece",
       drop : ((e, ui) => {
-        const pieceIdStr = ui.draggable.data("piece-id")
-        action.addToTargetPieceList(parseInt(pieceIdStr, 10))
-      })
+        const pieceId = ui.draggable.data("piece-id")
+        action.addToTargetPieces(parseInt(pieceId, 10))
+      }),
     })
 
     $("#start-button").on("click", () => {
@@ -57,10 +55,8 @@ const initializer = {
     })
 
     $('#speed-range').on("change", () => {
-      const speed = $('#speed-range').val()
-      action.changeSpeed(speed)
-    });
-
+      const speedLevel = $('#speed-range').val()
+      action.changeSpeed(parseInt(speedLevel, 10))
+    })
   },
-
 }

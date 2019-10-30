@@ -24,7 +24,7 @@ nav {
   border-top: 30px solid #ffc107;
 }
 
-#reset-button, #more-piece-button {
+#more-piece-button, #reset-button {
   display: none;
 }
 
