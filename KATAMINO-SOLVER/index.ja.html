@@ -54,31 +54,32 @@
             <img src="img/piece/piece_11_0.png" width="75px" />
           </span>
         </div>
-      </div>
+      </div><!-- end of card for unused-piece -->
       <div class="arrow-down mx-auto">
       </div>
       <div id="used-piece" class="card text-center border-warning my-2">
         <div id="used-piece-droppable" class="card-body">
-          <div id="piece_1" class="draggable-piece m-2 p-0" data-piece-id="1">
+          <span id="piece_1" class="draggable-piece m-2 p-0" data-piece-id="1">
             <img src="img/piece/piece_1_5.png" width="50px" />
-          </div>
-          <div id="piece_2" class="draggable-piece m-2 p-0" data-piece-id="2">
+          </span>
+          <span id="piece_2" class="draggable-piece m-2 p-0" data-piece-id="2">
             <img src="img/piece/piece_2_5.png" width="50px" />
-          </div>
-          <div id="piece_9" class="draggable-piece m-2 p-0" data-piece-id="9">
+          </span>
+          <span id="piece_9" class="draggable-piece m-2 p-0" data-piece-id="9">
             <img src="img/piece/piece_9_0.png" width="75px" />
-          </div>
-          <div id="piece_5" class="draggable-piece m-2 p-0" data-piece-id="5">
+          </span>
+          <span id="piece_5" class="draggable-piece m-2 p-0" data-piece-id="5">
             <img src="img/piece/piece_5_3.png" width="50px" />
-          </div>
-          <div id="piece_10" class="draggable-piece m-2 p-0" data-piece-id="10">
+          </span>
+          <span id="piece_10" class="draggable-piece m-2 p-0" data-piece-id="10">
             <img src="img/piece/piece_10_0.png" width="75px" />
-          </div>
+          </span>
         </div>
         <div class="card-footer">
           つかうピース
         </div>
-      </div>
+      </div><!-- end of card for used-piece -->
+
       <button type="button" id="start-button" class="btn btn-warning btn-lg btn-block my-3">スタート</button>
       <button type="button" id="more-piece-button" class="btn btn-warning btn-lg btn-block my-3" disabled>つかうピースをもっとおいてください</button>
       <button type="button" id="reset-button" class="btn btn-danger btn-lg btn-block my-3">ピースをえらびなおす</button>
@@ -88,6 +89,7 @@
           <div id="katamino-field" class="mx-auto p-0">
             <img src="img/field/field.jpg" width="352" height="177"/>
             <div id="field-mask"></div>
+
             <img id="piece_0_0" class="katamino-piece" src="img/piece/piece_0_0.png" width="125px" />
             <img id="piece_0_1" class="katamino-piece" src="img/piece/piece_0_1.png" width="25px" />
 
@@ -162,33 +164,30 @@
             <img id="piece_10_3" class="katamino-piece" src="img/piece/piece_10_3.png" width="75px" />
 
             <img id="piece_11_0" class="katamino-piece" src="img/piece/piece_11_0.png" width="75px" />
-          </div>
-        </div>
+          </div><!-- end of katamino-field -->
+        </div><!-- end of card-body for katamino-field -->
         <div class="card-footer d-flex">
           <div class="flex-grow-1">
             <button id="pause-button" type="button" class="btn btn-outline-secondary" disabled>いちじていし</button>
             <button id="resume-button" type="button" class="btn btn-outline-secondary" disabled>さいかい</button>
           </div>
           <div class="align-self-center">
-            <label class="text-secondary">はやさ: はやい <input id="speed-range" type="range" name="speed" form="dummy-form" min="0" max="4" value="3"> おそい</label>
+            <label class="text-secondary">はやさ: はやい <input id="speed-range" type="range" name="speed" min="0" max="4" value="3"> おそい</label>
           </div>
-        </div>
-      </div>
-
+        </div><!-- end of card-footer for katamino-field -->
+      </div><!-- end of card for katamino-field -->
 
       <!-- AD -->
       <div class="text-secondary mt-4">KATAMINOはGigamicが発売する商品です。</div>
-      <table border="0" cellpadding="0" cellspacing="0"><tr><td><div style="border:1px solid #95a5a6;border-radius:.75rem;background-color:#FFFFFF;width:504px;margin:0px;padding:5px;text-align:center;overflow:hidden;"><table><tr><td style="width:240px"><a href="https://hb.afl.rakuten.co.jp/hgc/182e4377.af19d097.182e4378.b6c07045/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnewton-style%2Fkom259200%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnewton-style%2Fi%2F10000912%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxfQ%3D%3D" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  ><img src="https://hbb.afl.rakuten.co.jp/hgb/182e4377.af19d097.182e4378.b6c07045/?me_id=1227356&item_id=10000912&m=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fnewton-style%2Fcabinet%2Fretail_img%2Fns%2Fkom259200.jpg%3F_ex%3D80x80&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fnewton-style%2Fcabinet%2Fretail_img%2Fns%2Fkom259200.jpg%3F_ex%3D240x240&s=240x240&t=picttext" border="0" style="margin:2px" alt="[商品価格に関しましては、リンクが作成された時点と現時点で情報が変更されている場合がございます。]" title="[商品価格に関しましては、リンクが作成された時点と現時点で情報が変更されている場合がございます。]"></a></td><td style="vertical-align:top;width:248px;"><p style="font-size:12px;line-height:1.4em;text-align:left;margin:0px;padding:2px 6px;word-wrap:break-word"><a href="https://hb.afl.rakuten.co.jp/hgc/182e4377.af19d097.182e4378.b6c07045/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnewton-style%2Fkom259200%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnewton-style%2Fi%2F10000912%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxfQ%3D%3D" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  >【ポイント11倍】 Gigamic（ギガミック）社 カタミノ KATAMINO 3歳〜 ギフト プレゼント (ネコポス不可) puzzle 新入学 新入園</a><br><span >価格：6048円（税込、送料無料)</span> <span style="color:#BBB">(2019/3/30時点)</span></p><div style="margin:10px;"><a href="https://hb.afl.rakuten.co.jp/hgc/182e4377.af19d097.182e4378.b6c07045/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnewton-style%2Fkom259200%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnewton-style%2Fi%2F10000912%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxfQ%3D%3D" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  ><img src="https://static.affiliate.rakuten.co.jp/makelink/rl.svg" style="float:left;max-height:27px;width:auto;margin-top:0"></a><a href="https://hb.afl.rakuten.co.jp/hgc/182e4377.af19d097.182e4378.b6c07045/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnewton-style%2Fkom259200%2F%3Fscid%3Daf_pc_bbtn&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnewton-style%2Fi%2F10000912%2F%3Fscid%3Daf_pc_bbtn&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxfQ==" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  ><div style="float:right;width:41%;height:27px;background-color:#bf0000;color:#fff !important;font-size:12px;font-weight:500;line-height:27px;margin-left:1px;padding: 0 12px;border-radius:16px;cursor:pointer;text-align:center;">楽天で購入</div></a></div></td><tr></table></div><br><p style="color:#000000;font-size:12px;line-height:1.4em;margin:5px;word-wrap:break-word"></p></td></tr></table>
+      <table border="0" cellpadding="0" cellspacing="0"><tr><td><div style="border:1px solid #95a5a6;border-radius:.75rem;background-color:#FFFFFF;width:504px;margin:0px;padding:5px;text-align:center;overflow:hidden;"><table><tr><td style="width:240px"><a href="https://hb.afl.rakuten.co.jp/hgc/182e4377.af19d097.182e4378.b6c07045/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnewton-style%2Fkom259200%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnewton-style%2Fi%2F10000912%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowfQ%3D%3D" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  ><img src="https://hbb.afl.rakuten.co.jp/hgb/182e4377.af19d097.182e4378.b6c07045/?me_id=1227356&item_id=10000912&m=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fnewton-style%2Fcabinet%2Fretail_img%2Fns%2Fkom259200.jpg%3F_ex%3D80x80&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fnewton-style%2Fcabinet%2Fretail_img%2Fns%2Fkom259200.jpg%3F_ex%3D240x240&s=240x240&t=picttext" border="0" style="margin:2px" alt="[商品価格に関しましては、リンクが作成された時点と現時点で情報が変更されている場合がございます。]" title="[商品価格に関しましては、リンクが作成された時点と現時点で情報が変更されている場合がございます。]"></a></td><td style="vertical-align:top;width:248px;"><p style="font-size:12px;line-height:1.4em;text-align:left;margin:0px;padding:2px 6px;word-wrap:break-word"><a href="https://hb.afl.rakuten.co.jp/hgc/182e4377.af19d097.182e4378.b6c07045/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnewton-style%2Fkom259200%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnewton-style%2Fi%2F10000912%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowfQ%3D%3D" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  >【 ポイント11倍 】 Gigamic（ギガミック）社 カタミノ KATAMINO 3歳〜 (ネコポス不可) ※消費税10%価格に変更済ページです。</a><br><span >価格：6160円（税込、送料無料)</span> <span style="color:#BBB">(2019/10/29時点)</span></p><div style="margin:10px;"><a href="https://hb.afl.rakuten.co.jp/hgc/182e4377.af19d097.182e4378.b6c07045/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnewton-style%2Fkom259200%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnewton-style%2Fi%2F10000912%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowfQ%3D%3D" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  ><img src="https://static.affiliate.rakuten.co.jp/makelink/rl.svg" style="float:left;max-height:27px;width:auto;margin-top:0"></a><a href="https://hb.afl.rakuten.co.jp/hgc/182e4377.af19d097.182e4378.b6c07045/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnewton-style%2Fkom259200%2F%3Fscid%3Daf_pc_bbtn&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnewton-style%2Fi%2F10000912%2F%3Fscid%3Daf_pc_bbtn&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowfQ==" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  ><div style="float:right;width:41%;height:27px;background-color:#bf0000;color:#fff !important;font-size:12px;font-weight:500;line-height:27px;margin-left:1px;padding: 0 12px;border-radius:16px;cursor:pointer;text-align:center;">楽天で購入</div></a></div></td><tr></table></div><br><p style="color:#000000;font-size:12px;line-height:1.4em;margin:5px;word-wrap:break-word"></p></td></tr></table>
 
       <div class="text-secondary mt-1">論理力のトレーニングに。</div>
-      <table border="0" cellpadding="0" cellspacing="0"><tr><td><div style="border:1px solid #95a5a6;border-radius:.75rem;background-color:#FFFFFF;width:504px;margin:0px;padding:5px;text-align:center;overflow:hidden;"><table><tr><td style="width:240px"><a href="https://hb.afl.rakuten.co.jp/hgc/09e70744.31e3aef1.09e70745.88f86ff4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F15804478%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19504549%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxfQ%3D%3D" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  ><img src="https://hbb.afl.rakuten.co.jp/hgb/09e70744.31e3aef1.09e70745.88f86ff4/?me_id=1213310&item_id=19504549&m=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F9032%2F9784053049032.jpg%3F_ex%3D80x80&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F9032%2F9784053049032.jpg%3F_ex%3D240x240&s=240x240&t=picttext" border="0" style="margin:2px" alt="[商品価格に関しましては、リンクが作成された時点と現時点で情報が変更されている場合がございます。]" title="[商品価格に関しましては、リンクが作成された時点と現時点で情報が変更されている場合がございます。]"></a></td><td style="vertical-align:top;width:248px;"><p style="font-size:12px;line-height:1.4em;text-align:left;margin:0px;padding:2px 6px;word-wrap:break-word"><a href="https://hb.afl.rakuten.co.jp/hgc/09e70744.31e3aef1.09e70745.88f86ff4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F15804478%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19504549%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxfQ%3D%3D" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  >5分で論理的思考力ドリル [ ソニー・グローバルエデュケーション ]</a><br><span >価格：1080円（税込、送料無料)</span> <span style="color:#BBB">(2019/3/30時点)</span></p><div style="margin:10px;"><a href="https://hb.afl.rakuten.co.jp/hgc/09e70744.31e3aef1.09e70745.88f86ff4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F15804478%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19504549%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxfQ%3D%3D" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  ><img src="https://static.affiliate.rakuten.co.jp/makelink/rl.svg" style="float:left;max-height:27px;width:auto;margin-top:0"></a><a href="https://hb.afl.rakuten.co.jp/hgc/09e70744.31e3aef1.09e70745.88f86ff4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F15804478%2F%3Fscid%3Daf_pc_bbtn&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19504549%2F%3Fscid%3Daf_pc_bbtn&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxfQ==" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  ><div style="float:right;width:41%;height:27px;background-color:#bf0000;color:#fff !important;font-size:12px;font-weight:500;line-height:27px;margin-left:1px;padding: 0 12px;border-radius:16px;cursor:pointer;text-align:center;">楽天で購入</div></a></div></td><tr></table></div><br><p style="color:#000000;font-size:12px;line-height:1.4em;margin:5px;word-wrap:break-word"></p></td></tr></table>
-      <!-- /AD -->
-    </div>
+      <table border="0" cellpadding="0" cellspacing="0"><tr><td><div style="border:1px solid #95a5a6;border-radius:.75rem;background-color:#FFFFFF;width:504px;margin:0px;padding:5px;text-align:center;overflow:hidden;"><table><tr><td style="width:240px"><a href="https://hb.afl.rakuten.co.jp/hgc/14751d84.8fc9ea90.14751d85.ef4bdf4e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenkobo-ebooks%2Fc23bdc45066e318b8369015c319aac71%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenkobo-ebooks%2Fi%2F18428772%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowfQ%3D%3D" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  ><img src="https://hbb.afl.rakuten.co.jp/hgb/14751d84.8fc9ea90.14751d85.ef4bdf4e/?me_id=1278256&item_id=18428772&m=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Frakutenkobo-ebooks%2Fcabinet%2F2978%2F2000007572978.jpg%3F_ex%3D80x80&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Frakutenkobo-ebooks%2Fcabinet%2F2978%2F2000007572978.jpg%3F_ex%3D240x240&s=240x240&t=picttext" border="0" style="margin:2px" alt="[商品価格に関しましては、リンクが作成された時点と現時点で情報が変更されている場合がございます。]" title="[商品価格に関しましては、リンクが作成された時点と現時点で情報が変更されている場合がございます。]"></a></td><td style="vertical-align:top;width:248px;"><p style="font-size:12px;line-height:1.4em;text-align:left;margin:0px;padding:2px 6px;word-wrap:break-word"><a href="https://hb.afl.rakuten.co.jp/hgc/14751d84.8fc9ea90.14751d85.ef4bdf4e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenkobo-ebooks%2Fc23bdc45066e318b8369015c319aac71%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenkobo-ebooks%2Fi%2F18428772%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowfQ%3D%3D" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  >5分で論理的思考力ドリル【電子書籍】[ ソニー・グローバルエデュケーション ]</a><br><span >価格：1019円</span> <span style="color:#BBB">(2019/10/31時点)</span></p><div style="margin:10px;"><a href="https://hb.afl.rakuten.co.jp/hgc/14751d84.8fc9ea90.14751d85.ef4bdf4e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenkobo-ebooks%2Fc23bdc45066e318b8369015c319aac71%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenkobo-ebooks%2Fi%2F18428772%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowfQ%3D%3D" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  ><img src="https://static.affiliate.rakuten.co.jp/makelink/rl.svg" style="float:left;max-height:27px;width:auto;margin-top:0"></a><a href="https://hb.afl.rakuten.co.jp/hgc/14751d84.8fc9ea90.14751d85.ef4bdf4e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenkobo-ebooks%2Fc23bdc45066e318b8369015c319aac71%2F%3Fscid%3Daf_pc_bbtn&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenkobo-ebooks%2Fi%2F18428772%2F%3Fscid%3Daf_pc_bbtn&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowfQ==" target="_blank" rel="nofollow noopener noreferrer" style="word-wrap:break-word;"  ><div style="float:right;width:41%;height:27px;background-color:#bf0000;color:#fff !important;font-size:12px;font-weight:500;line-height:27px;margin-left:1px;padding: 0 12px;border-radius:16px;cursor:pointer;text-align:center;">楽天で購入</div></a></div></td><tr></table></div><br><p style="color:#000000;font-size:12px;line-height:1.4em;margin:5px;word-wrap:break-word"></p></td></tr></table>
+      <!--/ AD -->
 
-    <form id="dummy-form" name="dummy" onsubmit="return false;">
-    </form>
+    </div><!-- end of container -->
 
-    <div id="solvedModal" class="modal" tabindex="-1" role="dialog">
+    <div id="solved-modal" class="modal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header bg-warning">
@@ -207,7 +206,7 @@
       </div>
     </div>
 
-    <div id="notSolvedModal" class="modal" tabindex="-1" role="dialog">
+    <div id="not-solved-modal" class="modal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header text-white bg-secondary">
@@ -226,7 +225,6 @@
       </div>
     </div>
 
-
     <footer class="bg-light mt-5">
       <div class="container">
         <div class="row py-3">
@@ -234,7 +232,7 @@
             <ul class="list-unstyled text-small">
               <li class="text-muted">Created by : yucatio</li>
               <li class="text-muted">github : <a href="https://github.com/yucatio/KATAMINO-SOLVER">https://github.com/yucatio/KATAMINO-SOLVER</a></li>
-              <li class="text-muted">blog : <a href="http://yucatio.hatenablog.com/">http://yucatio.hatenablog.com/</a></li>
+              <li class="text-muted">blog : <a href="http://yucatio.hatenablog.com/entry/2019/07/22/211559">KATAMINOを解くプログラムを作成する【目次】</a></li>
             </ul>
           </div>
         </div>
@@ -247,13 +245,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-    <script src="js/util.js"></script>
     <script src="js/config.js"></script>
+    <script src="js/util.js"></script>
     <script src="js/state.js"></script>
     <script src="js/display.js"></script>
-    <script src="js/displayManager.js"></script>
+    <script src="js/stateManager.js"></script>
     <script src="js/katamino-arr.js"></script>
-    <script src="js/field.js"></script>
+    <script src="js/solver.js"></script>
     <script src="js/action.js"></script>
     <script src="js/main.js"></script>
   </body>
